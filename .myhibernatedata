@@ -1,0 +1,16 @@
+#MyEclipse Hibernate Properties
+#Mon Aug 04 17:25:35 CST 2014
+genVersionTag=false
+genAnnotations=false
+configFile=/reocar-base/resources/applicationContext.xml
+reStrategyClass=
+sessionFactoryId=sessionFactory
+profile=
+detectM2M=false
+genBasicCompId=false
+keyGenerator=
+createConfigFile=true
+basePersistenceClass=
+detectO2O=false
+useJavaTypes=true
+reSettingsFile=

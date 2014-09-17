@@ -1,0 +1,174 @@
+a:link{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+a:visited{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+a:hover{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #144882;
+	text-decoration: underline;
+}
+.font1{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #333333;
+}
+.txt{
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #333333;
+	width:150px;
+}
+a.font1:link{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+a.font1:visited{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+a.font1:hover{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #144882;
+	text-decoration: underline;
+}
+.font2{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #144882;
+}
+a.font2:link{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #144882;
+	text-decoration: none;
+}
+a.font2:visited{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #144882;
+	text-decoration: none;
+}
+a.font2:hover{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #144882;
+	text-decoration: underline;
+}
+.font3{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #ffffff;
+}
+a.font3:link{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #ffffff;
+	text-decoration: none;
+}
+a.font3:visited{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #ffffff;
+	text-decoration: none;
+}
+a.font3:hover{
+	font-family: "";
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+html,body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	background-color: #2286C2;
+}
+table{border:0;margin:0;border-collapse:collapse;}
+table td{padding:0;}
+.borderTop{background:url('index1_24.gif'); height:29px; overflow:hidden; text-align:justify;}
+.borderContent{background:#FFFFFF; overflow:hidden;}
+.borderContent .contentLeft{background:url('index1_45.gif'); width:8px; float:left;margin-bottom:-10000px; padding-bottom:10000px;}
+.borderContent .content{ width:auto; float:left; text-align:center;margin-bottom:-10000px; padding-bottom:10000px;}
+.borderContent .contentRight{background:url('index1_47.gif'); width:8px; float:right;margin-bottom:-10000px; padding-bottom:10000px;}
+.borderBottom{background:url('index1_92.gif'); height:8px; overflow:hidden; text-align:justify;}
+.contentTop{ background: #FFFFFF; vertical-align: top; text-align: left; padding: 10px;margin-bottom: 10px;}
+.contentTop .location{ border-color: #C4E7FB; border-style: solid; padding: 4px; border-width: 2px; }
+.contentTop div{ margin-bottom: 5px; }
+.contentBody table{width: 100%;}
+.contentBody table tr th{border-color: #BBD3EB;border-style:solid;border-width:1px;background:url('index1_72.gif');height:26px;text-align: center; vertical-align: middle;font-size: 14px;}
+.contentBody table tr td{border-color: #BBD3EB;border-style:solid;border-width:1px;text-align: center;height:26px;background-color:#F7FAFF;  }
+.input_01{
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #FFFFFF;
+	width: 200px;
+	padding: 3px;
+	font-size: 14px;
+	color: gray;
+	margin: 2px;
+}
+.input_02{
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #FFFFFF;
+	width: 100px;
+	padding: 3px;
+	font-size: 14px;
+	color: gray;
+	margin: 2px;
+}
+.btn_small{background:url('btn_bg.gif') repeat-x;height:22px;padding:0 5px;border:1px solid #9cc9e0;color:#006db9;line-height:22px;margin:0 2px;cursor: pointer;}
+.btn_big{background:url('btn_bg.gif') repeat-x;height:22px;padding:0 20px;border:1px solid #9cc9e0;color:#006db9;line-height:22px;margin:0 3 0 3px;cursor: pointer;}
+.btn_order{background:url('btn_bg.gif') repeat-x;height:22px;padding:0 2px;border:1px solid #9cc9e0;color:#006db9;line-height:22px;margin:0 2px;cursor: pointer;}
+.redC{color:red}

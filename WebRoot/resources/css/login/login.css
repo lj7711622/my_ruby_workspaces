@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document created by Tiger Zhang */
+/*--------Person Center Basic Element--------*/
+*{margin:0;padding:0;list-style:none;} ul, li{margin:0;padding:0;list-style:none;}
+html{background:#22658c;}
+body{margin:0;padding:0;font-size:12px;font-family:'宋体',Verdana, Arial, Helvetica, sans-serif;color:#666;background:#eb841a url(images/bg_log.jpg) no-repeat left top;}
+img{border:none;}
+form{margin:0;padding:0;}
+
+a:link {color:#eee; text-decoration:none;}
+a:visited {color:#eee;text-decoration:none;}
+a:hover {color:#bbb; text-decoration:none;}
+a:active {color:#eee;font-weight:normal;}
+
+/*--------Person Center Layout Element--------*/
+
+/*--styles of header-begins--*/
+.loginBgX{background:#eb841a url(images/_bg_log_.jpg) no-repeat left top;width:100%;min-height:650px;margin:0 auto 0;}
+.loginBox{width:300px;height:auto;padding:260px 10px 90px 350px;text-align:center; text-align:left;background:none;}
+.loginTable{width:300px;height:200px;float:right;border-collapse:collapse;padding:0;}
+.loginTable tr td{line-height:40px;}
+.loginTable .logTleft{width:70px; text-align:right;font-family: "Microsoft YaHei","微软雅黑","simhei","黑体",SimSun,Tahoma,Verdana,Geneva,sans-serif;color:#444444;font-size:14px;padding-right:6px}
+.loginTable .logTright{width:220px; text-align:left;}
+
+.regBox{width:462px;height:auto;text-align:center;margin:10px auto 0;background:#c9dbe4;}
+.regBoxTitle{width:462px;height:115px;background:#fff url(images/bg_reg.jpg) no-repeat left top;}
+.regBoxCon{width:460px;height:300px;background:#fff;border:1px solid #3195cb;border-top:none;}
+.regTable{width:450px;height:200px;float:right;border-collapse:collapse;padding:0;}
+.regTable tr td{line-height:34px;}
+.regTable .regTleft{width:120px; text-align:right;font-family: "Microsoft YaHei","微软雅黑","simhei","黑体",SimSun,Tahoma,Verdana,Geneva,sans-serif;color:#059;font-size:14px;padding-right:4px}
+.regTable .regTMid{width:200px; text-align:left;padding-right:4px;}
+.regTable .regTright{width:170px; text-align:left;font-size:12px;padding-left:4px;}
+
+.btn_style{border:1px solid #5bd; background:#e1f5ff;width:78px;height:25px;line-height:25px;cursor:pointer;color:#333;}
+.btn_log{border:none;width:77px;height:29px;background:url(images/btn_log.gif) no-repeat left top;}
+.btn_reg{border:none;width:77px;height:29px;background:url(images/btn_reg.gif) no-repeat left top;}
+.btn_return{border:none;width:77px;height:29px;background:#url(images/btn_return.gif) no-repeat left top;}
+
+.btn_big{background:#fff url('images/btn_x.gif') repeat-x left bottom;height:24px;padding:0 15px;border:1px solid #bbb;color:#333;line-height:24px;margin:0 3px;cursor: pointer;}
+.btn_big:hover{background:#f4fcff url('images/btn_x2.gif') repeat-x left bottom;border:1px solid #42b1d1;color:#069;}
+
+/*--styles of footer-begins--*/
+.logfooter{width:700px;height:auto;text-align:center;margin:10px auto 2px;}
+.logfooter p{width:700px;height:26px;line-height:26px;font-size:14px;padding:0 4px;font-family: "Microsoft YaHei","微软雅黑","simhei","黑体",SimSun,Tahoma,Verdana,Geneva,sans-serif;color:#eee;}
+.logfooter a{color:#eee;padding:0 4px;} .logfooter a:hover{color:#bbb;}
+/*--styles of footer-ends--*/
+
+/*--styles of common elements-begins--*/
+.imgAdjust{margin-top:-4px !important;*margin-top:-12px !important;*margin-top:-12px;}
+.hidden{display:hidden;visibility:hidden;}
+floatL, .fl{float:left;} .floatR, .fr{float:right;}
+table.noSpacing{border-collapse:collapse;} table.noSpacing td{padding:0;}
+.toL{ text-align:left; padding-left:4px;} .toR{text-align:right; padding-right:4px;}
+.CBlue{color:#168;} .cRed,a.cRed{color:#c30;} .cGreen,a.cGreen{color:#6c3;}
+.iptStyle01{color:#353535;width:164px;height:24px;line-height:24px;background:#fff;border:1px solid #c0c0c0;padding:0 3px;}
+.iptStyle02{width:164px;height:20px;line-height:20px;background:#fff;border:1px solid #c0c0c0;;padding:0 3px;}
+.taStyle01{width:164px;height:60px;line-height:20px;background:#fff;border:1px solid #dec089;padding:0 3px;}
+/*--styles of common elements-ends--*/

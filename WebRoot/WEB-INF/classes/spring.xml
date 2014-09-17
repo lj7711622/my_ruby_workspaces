@@ -1,0 +1,146 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-3.2.xsd"
+	default-lazy-init="true">
+	<!-- 引入属性文件 -->
+	<context:property-placeholder location="classpath:config.properties" />
+	
+	<!-- 表示为去引入 配置了@Controller注解的类做控制器,自动扫描包,可以写多个 -->
+	<context:component-scan base-package="com.reocar.core.controller" use-default-filters="false" >
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+	
+	<!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<!-- 这里是是否启用参数支持,默认就是true -->
+		<property name="favorParameter" value="false" />
+		<!-- 这里是是否启用扩展名支持，默认就是true -->
+		<property name="favorPathExtension" value="true" />
+		<property name="ignoreAcceptHeader" value="true" />
+		<!-- 如果所有的mediaType都没匹配上，就会使用defaultContentType -->
+		<property name="defaultContentType" value="text/html" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="html" value="text/html" />
+				<entry key="atom" value="application/atom+xml" />
+				<entry key="pdf" value="application/pdf" />
+				<entry key="xsl" value="application/vnd.ms-excel" />
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+			</map>
+		</property>
+	</bean>
+	
+	
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+				<!-- JSP的视图配置,没有找到对应的JSP页面的话,会下去再找ftl的 -->
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+					<property name="prefix" value="/WEB-INF/"/>
+					<property name="suffix" value=".jsp" />
+					<property name="contentType" value="text/html;charset=UTF-8" />
+				</bean>
+				<!-- 页面请求时先找此配置 <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"> <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"></property> 
+					<property name="cache" value="true" /> <property name="prefix" value="" /> <property name="suffix" value=".ftl" /> <property name="exposeSpringMacroHelpers" value="true" /> <property name="exposeRequestAttributes" 
+					value="true" /> <property name="exposeSessionAttributes" value="true" /> <property name="contentType" value="text/html;charset=UTF-8" /> <property name="order" value="2" /> </bean> -->
+			</list>
+		</property>
+		<!-- view 接口 下的视图解析对象 -->
+		<property name="defaultViews">
+			<list>
+				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+					<property name="extractValueFromSingleKeyModel" value="true" />
+					<property name="objectMapper" ref="objectMapper" />
+				</bean>
+				<!-- <bean class="org.springframework.web.servlet.view.xml.MarshallingView"> <property name="marshaller"> <bean class="org.springframework.oxm.xstream.XStreamMarshaller" /> </property> </bean> -->
+			</list>
+		</property>
+	</bean>
+	
+	<!-- -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="com.reocar.core.convert.CustomDateConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- -->
+	<util:list id="messageConverters">
+		<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+			<constructor-arg value="UTF-8" />
+		</bean>
+		<bean class="org.springframework.http.converter.ResourceHttpMessageConverter" />
+		<bean class="org.springframework.http.converter.FormHttpMessageConverter" />
+		<bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter" />
+		<bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+			<property name="objectMapper" ref="objectMapper" />
+			<property name="supportedMediaTypes">
+				<list>
+					<value>text/html;charset=utf-8</value>
+				</list>
+			</property>
+		</bean>
+	</util:list>
+
+	<!-- -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+	</bean>
+
+	<!-- Spring3.1开始的注解HandlerMapping -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+	<!-- Spring3.1开始的注解HandlerAdapter -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters" ref="messageConverters" />
+		<property name="synchronizeOnSession" value="true" />
+		<property name="webBindingInitializer">
+			<bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+				<property name="conversionService" ref="conversionService" />
+				<property name="validator" ref="validator" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
+		<property name="serializationInclusion">
+			<value type="com.fasterxml.jackson.annotation.JsonInclude$Include">NON_NULL</value>
+		</property>
+	</bean>
+
+	<!-- freemarker config <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"> <property name="templateLoaderPath" value="/WEB-INF/ftl/" /> <property 
+		name="defaultEncoding" value="UTF-8"></property> <property name="freemarkerSettings"> <props> <prop key="template_update_delay">3600</prop> <prop key="locale">zh_CN</prop> <prop key="datetime_format">yyyy-MM-dd 
+		HH:mm:ss</prop> <prop key="date_format">yyyy-MM-dd</prop> <prop key="number_format">#.##</prop> </props> </property> </bean> -->
+
+	<!-- 自定义一个View,使用Gson返回Json数据 <bean name="CustomGsonView" class="framework.mvc.customview.CustomGsonView" /> -->
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 限制在内容中最大只能放10KB 单位:字节 -->
+		<property name="maxInMemorySize" value="10240" />
+		<!-- 所有文件的容量之和,设置最大尺寸为10MB 单位:字节 -->
+		<property name="maxUploadSize" value="10485760" />
+		<!-- 当request自己指明了它的编码格式的时候就会忽略这里指定的defaultEncoding -->
+		<property name="defaultEncoding" value="UTF-8" />
+		<!-- 设置上传文件时的临时目录，默认是Servlet容器的临时目录。 <property name="uploadTempDir" value="aaa"></property> -->
+	</bean>
+
+	<!-- 静态资源文件的处理 -->
+	<mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926" />
+</beans>
