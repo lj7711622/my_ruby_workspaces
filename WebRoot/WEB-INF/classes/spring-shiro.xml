@@ -25,7 +25,7 @@
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/reocar/layout/login.html" />
-		<property name="successUrl" value="/reocar/layout/index.html" />
+		<property name="successUrl" value="/reocar/layout/index.html"/>
 		<property name="unauthorizedUrl" value="/reocar/layout/login.html?error=l" />
 		<property name="filterChainDefinitions">
 			<value>

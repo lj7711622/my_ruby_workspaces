@@ -96,7 +96,7 @@ public class IndexController extends BaseController{
 		
 		try {
 			subject.login(token);
-			return INDEX_PAGE;
+			return "redirect:/"+INDEX_PAGE;
 		}
 		catch (LockedAccountException lae) {// 帐号被锁定
 			lae.printStackTrace();
